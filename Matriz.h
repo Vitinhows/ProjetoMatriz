@@ -20,6 +20,7 @@ public:
     Matriz* subtrair(Matriz const * const mat)const;
     Matriz* multiplicar(Matriz const * const mat)const;
     Matriz* transposta()const;
+    Matriz* potencia(int p)const;
 };
 }//fim
 #endif // MATRIZ_H

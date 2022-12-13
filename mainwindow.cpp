@@ -183,3 +183,38 @@ void MainWindow::on_pushButtonTransposta2_clicked()
 
 }
 
+
+void MainWindow::on_pushButtonPotenciaA_clicked()
+{
+    try {
+        if(matA==0) throw QString("Operação de potência não pode ser executada.");
+
+        int p = ui->lineEditPotencia1->text().toInt();
+        ejm::Matriz *matC = matA->potencia(p);
+        ui->textEditSaidaResultado->setText(matC->getMatriz());
+        if(matC) delete matC;
+
+    }
+    catch(QString &erro){
+        QMessageBox::information(this,"ERRO NO SISTEMA",erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonPotenciaB_clicked()
+{
+    try {
+        if(matB==0) throw QString("Operação de potência não pode ser executada.");
+
+        int p = ui->lineEditPotencia1->text().toInt();
+        ejm::Matriz *matC = matB->potencia(p);
+        ui->textEditSaidaResultado->setText(matC->getMatriz());
+        if(matC) delete matC;
+
+    }
+    catch(QString &erro){
+        QMessageBox::information(this,"ERRO NO SISTEMA",erro);
+    }
+
+}
+

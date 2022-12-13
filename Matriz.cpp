@@ -145,6 +145,34 @@ Matriz* Matriz::transposta()const{
 
 }
 
+Matriz* Matriz::potencia(int p)const{
+    try {
+        Matriz *aux = new Matriz(this->quantidadeDeLinhas,this->quantidadeDeColunas);
+        for(int linha=0; linha<this->quantidadeDeLinhas; linha++){
+            for(int coluna=0; coluna<this->quantidadeDeColunas; coluna++){
+                int valor = this->getElemento(linha,coluna) *
+                        this->getElemento(linha,coluna);
+                aux->setElemento(valor,linha,coluna);
+            }
+        }
+        int cont = 1;
+           if(p>1){
+
+               while(cont < p){
+                   aux = aux->multiplicar(aux);
+               }
+           }
+
+        return aux;
+
+    }
+    catch(std::bad_alloc&){
+        throw QString("Vai comprar Memoria");
+    }
+
+
+}
+
 
 
 
