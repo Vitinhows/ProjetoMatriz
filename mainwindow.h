@@ -34,7 +34,9 @@ private slots:
 
     void on_pushButtonSubtrair_clicked();
 
-    void on_pushButtonSubtrair_2_clicked();
+    void on_pushButtonMultiplicar_clicked();
+
+    void on_pushButtonTransposta1_clicked();
 
 private:
     Ui::MainWindow *ui;

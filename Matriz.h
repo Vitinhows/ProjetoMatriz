@@ -19,6 +19,7 @@ public:
     Matriz* adicionar(Matriz const * const mat)const;
     Matriz* subtrair(Matriz const * const mat)const;
     Matriz* multiplicar(Matriz const * const mat)const;
+    Matriz* transposta()const;
 };
 }//fim
 #endif // MATRIZ_H

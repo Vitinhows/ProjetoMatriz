@@ -138,12 +138,27 @@ void MainWindow::on_pushButtonSubtrair_clicked()
 }
 
 
-void MainWindow::on_pushButtonSubtrair_2_clicked()
+void MainWindow::on_pushButtonMultiplicar_clicked()
 {
     try {
         if(matA==0) throw QString("Operação de x não pode ser executada.");
         if(matB==0) throw QString("Operação de x não pode ser executada.");
         ejm::Matriz *matC = matA->multiplicar(matB);
+        ui->textEditSaidaResultado->setText(matC->getMatriz());
+        if(matC) delete matC;
+    }
+    catch(QString &erro){
+        QMessageBox::information(this,"ERRO NO SISTEMA",erro);
+    }
+}
+
+
+void MainWindow::on_pushButtonTransposta1_clicked()
+{
+    try {
+        if(matA==0) throw QString("Transposição não pode ser executada.");
+
+        ejm::Matriz *matC = matA->transposta(matB);
         ui->textEditSaidaResultado->setText(matC->getMatriz());
         if(matC) delete matC;
     }

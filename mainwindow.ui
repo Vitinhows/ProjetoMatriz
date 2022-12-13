@@ -263,7 +263,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonSubtrair_2">
+   <widget class="QPushButton" name="pushButtonMultiplicar">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -282,7 +282,7 @@
      <string>x</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
@@ -317,12 +317,12 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>80</y>
-      <width>281</width>
+      <width>284</width>
       <height>37</height>
      </rect>
     </property>
@@ -352,7 +352,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>410</x>
@@ -387,12 +387,12 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>410</x>
       <y>80</y>
-      <width>281</width>
+      <width>284</width>
       <height>37</height>
      </rect>
     </property>
@@ -422,6 +422,45 @@
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="pushButtonTransposta1">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>300</y>
+      <width>191</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Transposta</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButtonTransposta2">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>300</y>
+      <width>191</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Transposta</string>
+    </property>
+   </widget>
+   <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
    <zorder>layoutWidget</zorder>
@@ -431,12 +470,13 @@
    <zorder>textEditSaidaMatB</zorder>
    <zorder>label_5</zorder>
    <zorder>layoutWidget_2</zorder>
-   <zorder>layoutWidget_3</zorder>
    <zorder>pushButtonAdicionar</zorder>
    <zorder>textEditSaidaResultado</zorder>
    <zorder>tableWidget</zorder>
    <zorder>pushButtonSubtrair</zorder>
-   <zorder>pushButtonSubtrair_2</zorder>
+   <zorder>pushButtonMultiplicar</zorder>
+   <zorder>pushButtonTransposta1</zorder>
+   <zorder>pushButtonTransposta2</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

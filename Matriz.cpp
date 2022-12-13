@@ -125,21 +125,21 @@ Matriz* Matriz::multiplicar (Matriz const * const mat)const{
 
 }
 
-Matriz* Matriz::transposta(Matriz const * const mat)const{
+Matriz* Matriz::transposta()const{
+    Matriz mat = mat.getMatriz();
     if( quantidadeDeLinhas  != mat->getQuantidadeDeLinhas() ||
         quantidadeDeColunas != mat->getQuantidadeDeColunas())
         throw QString("Nao pode ser multiplicado matriz de tamanhos diferentes");
     try {
          Matriz *aux = new Matriz(quantidadeDeLinhas,quantidadeDeColunas);
-         for(int linha = 1; linha < quantidadeDeLinhas; linha++) { // começa em 1, pois ignora a diagonal
-                for (int coluna = 0; coluna < quantidadeDeColunas; coluna++) { // só vai até `i` (até a diagonal), não precisa ir até o fim
-                    // troca os elementos de posição
-                    int aux = this->getElemento(linha,coluna);
-                    this->getElemento(linha,coluna) = this->getElemento(coluna,linha);
-                    mat[quantidadeDeColunas][quantidadeDeLinhas] = aux;
-            }
-        }
-        return
+         for(int linha=0; linha<quantidadeDeColunas; linha++)
+                 {
+                     for(int coluna=0; coluna<quantidadeDeLinhas; coluna++){
+                         int valor = this->getElemento(linha,coluna);
+                         aux->setElemento(valor,linha,coluna);
+                     }
+                 }
+        return aux;
     }
     catch(std::bad_alloc&){
         throw QString("Vai comprar Memoria");
