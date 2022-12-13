@@ -38,6 +38,8 @@ private slots:
 
     void on_pushButtonTransposta1_clicked();
 
+    void on_pushButtonTransposta2_clicked();
+
 private:
     Ui::MainWindow *ui;
     ejm::Matriz *matA;

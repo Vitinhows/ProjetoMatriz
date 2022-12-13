@@ -158,12 +158,28 @@ void MainWindow::on_pushButtonTransposta1_clicked()
     try {
         if(matA==0) throw QString("Transposição não pode ser executada.");
 
-        ejm::Matriz *matC = matA->transposta(matB);
+        ejm::Matriz *matC = matA->transposta();
         ui->textEditSaidaResultado->setText(matC->getMatriz());
         if(matC) delete matC;
     }
     catch(QString &erro){
         QMessageBox::information(this,"ERRO NO SISTEMA",erro);
     }
+}
+
+
+void MainWindow::on_pushButtonTransposta2_clicked()
+{
+    try {
+        if(matB==0) throw QString("Transposição não pode ser executada.");
+
+        ejm::Matriz *matC = matB->transposta();
+        ui->textEditSaidaResultado->setText(matC->getMatriz());
+        if(matC) delete matC;
+    }
+    catch(QString &erro){
+        QMessageBox::information(this,"ERRO NO SISTEMA",erro);
+    }
+
 }
 

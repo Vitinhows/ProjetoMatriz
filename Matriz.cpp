@@ -126,17 +126,15 @@ Matriz* Matriz::multiplicar (Matriz const * const mat)const{
 }
 
 Matriz* Matriz::transposta()const{
-    Matriz mat = mat.getMatriz();
-    if( quantidadeDeLinhas  != mat->getQuantidadeDeLinhas() ||
-        quantidadeDeColunas != mat->getQuantidadeDeColunas())
-        throw QString("Nao pode ser multiplicado matriz de tamanhos diferentes");
+
+
     try {
-         Matriz *aux = new Matriz(quantidadeDeLinhas,quantidadeDeColunas);
-         for(int linha=0; linha<quantidadeDeColunas; linha++)
+         Matriz *aux = new Matriz(quantidadeDeColunas,quantidadeDeLinhas);
+         for(int linha=0; linha<quantidadeDeLinhas; linha++)
                  {
-                     for(int coluna=0; coluna<quantidadeDeLinhas; coluna++){
+                     for(int coluna=0; coluna<quantidadeDeColunas; coluna++){
                          int valor = this->getElemento(linha,coluna);
-                         aux->setElemento(valor,linha,coluna);
+                         aux->setElemento(valor,coluna, linha);
                      }
                  }
         return aux;
@@ -144,9 +142,7 @@ Matriz* Matriz::transposta()const{
     catch(std::bad_alloc&){
         throw QString("Vai comprar Memoria");
     }
-    catch(QString &erro){
-        throw QString("Matriz auxiliar nao Criada nao podemos adicionar as matrizes");
-    }
+
 }
 
 
