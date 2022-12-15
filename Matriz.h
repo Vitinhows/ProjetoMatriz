@@ -21,6 +21,10 @@ public:
     Matriz* multiplicar(Matriz const * const mat)const;
     Matriz* transposta()const;
     Matriz* potencia(int p)const;
+    Matriz* vezesK(int p)const;
+    bool eIgual(const Matriz * const mat);
+    bool triangularSup()const;
+    bool simetrica()const;
 };
 }//fim
 #endif // MATRIZ_H

@@ -44,6 +44,12 @@ private slots:
 
     void on_pushButtonPotenciaB_clicked();
 
+    void on_pushButtonVezesK_A_clicked();
+
+    void on_pushButtonExecutar_clicked();
+
+    void on_pushButtonVezesK_B_clicked();
+
 private:
     Ui::MainWindow *ui;
     ejm::Matriz *matA;

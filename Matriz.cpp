@@ -150,8 +150,7 @@ Matriz* Matriz::potencia(int p)const{
         Matriz *aux = new Matriz(this->quantidadeDeLinhas,this->quantidadeDeColunas);
         for(int linha=0; linha<this->quantidadeDeLinhas; linha++){
             for(int coluna=0; coluna<this->quantidadeDeColunas; coluna++){
-                int valor = this->getElemento(linha,coluna) *
-                        this->getElemento(linha,coluna);
+                int valor = this->getElemento(linha,coluna);
                 aux->setElemento(valor,linha,coluna);
             }
         }
@@ -159,7 +158,9 @@ Matriz* Matriz::potencia(int p)const{
            if(p>1){
 
                while(cont < p){
-                   aux = aux->multiplicar(aux);
+
+                   aux = aux->multiplicar(this);
+                   cont++;
                }
            }
 
@@ -173,6 +174,65 @@ Matriz* Matriz::potencia(int p)const{
 
 }
 
+Matriz* Matriz::vezesK(int p)const{
+    try {
+        Matriz *aux = new Matriz(this->quantidadeDeLinhas,this->quantidadeDeColunas);
+        for(int linha=0; linha<this->quantidadeDeLinhas; linha++){
+            for(int coluna=0; coluna<this->quantidadeDeColunas; coluna++){
+                int valor = this->getElemento(linha,coluna) * p;
+                aux->setElemento(valor,linha,coluna);
+
+            }
+        }
+        return aux;
+
+}
+
+    catch(std::bad_alloc&){
+        throw QString("Vai comprar Memoria");
+    }
+}
+
+bool Matriz::eIgual(const Matriz * const mat){
+    int j,i;
+    for(int linha=0; linha<this->quantidadeDeLinhas; linha++){
+        for(int coluna=0; coluna<this->quantidadeDeColunas; coluna++){
+            for(i = 0; i < mat->quantidadeDeLinhas and *(this->pMatriz + linha) != *(mat->pMatriz + i); i++);
+            for(j = 0; j < mat->quantidadeDeColunas and *(this->pMatriz + coluna) != *(mat->pMatriz + j); j++);
+            if(j == mat->quantidadeDeLinhas and j == mat->quantidadeDeColunas
+                    and i == mat->quantidadeDeLinhas and i== mat->quantidadeDeColunas) return false;
+        }
+
+    }
+    return true;
+}
+
+bool Matriz::triangularSup()const{
+        int linha;
+        for(int coluna=0; coluna<this->quantidadeDeColunas; coluna++){
+            for(linha=coluna + 1; linha<this->quantidadeDeLinhas and this->getElemento(linha,coluna) == 0; linha++);
+                if(linha < quantidadeDeLinhas){
+                    return false;
+                }
+        }
+    return true;
+}
+
+bool Matriz::simetrica()const{
+    if(quantidadeDeLinhas != quantidadeDeColunas) throw QString("Matriz não quadrada");
+    Matriz *aux = this->transposta();
+    int cont = 0;
+    for(int linha = 0; linha<quantidadeDeLinhas; linha++){
+        for(int coluna = 0; coluna<quantidadeDeColunas; coluna++){
+            int valorMatA = this->getElemento(linha,coluna);
+            int valorMatAux = aux->getElemento(linha,coluna);
+            if(valorMatAux == valorMatA) cont++;
+        }
+
+    }
+    if(cont==(quantidadeDeLinhas*quantidadeDeColunas)) return true;
+    return false;
+}
 
 
 

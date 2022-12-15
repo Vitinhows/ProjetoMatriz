@@ -218,3 +218,99 @@ void MainWindow::on_pushButtonPotenciaB_clicked()
 
 }
 
+
+void MainWindow::on_pushButtonVezesK_A_clicked()
+{
+    try {
+        if(matA==0) throw QString("Operação por K não pode ser executada.");
+
+        int p = ui->lineEditVezesK_A->text().toInt();
+        ejm::Matriz *matC = matA->vezesK(p);
+        ui->textEditSaidaResultado->setText(matC->getMatriz());
+        if(matC) delete matC;
+
+    }
+    catch(QString &erro){
+        QMessageBox::information(this,"ERRO NO SISTEMA",erro);
+    }
+
+}
+
+
+void MainWindow::on_pushButtonExecutar_clicked()
+{
+    try {
+        QString str1 ="SIM";
+        QString str2 ="NAO";
+
+        if(matA->triangularSup()==true){
+            QTableWidgetItem *item1 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(0,0,item1);
+        }
+        else{
+            QTableWidgetItem *item2 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(0,0,item2);
+        }
+        if(matB->triangularSup()==true){
+            QTableWidgetItem *item3 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(0,1,item3);
+        }
+        else{
+            QTableWidgetItem *item4 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(0,1,item4);
+        }
+
+        if(matA->eIgual(matB)==true){
+            QTableWidgetItem *item5 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(4,0,item5);
+        }
+        else{
+            QTableWidgetItem *item6 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(4,0,item6);
+        }
+        if(matB->eIgual(matA)==true){
+            QTableWidgetItem *item7 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(4,1,item7);
+        }
+        else{
+            QTableWidgetItem *item8 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(4,1,item8);
+        }
+        if(matA->simetrica()==true){
+            QTableWidgetItem *item9 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(2,0,item9);
+        }
+        else{
+            QTableWidgetItem *item10 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(2,0,item10);
+        }
+        if(matB->simetrica()==true){
+            QTableWidgetItem *item11 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(2,1,item11);
+        }
+        else{
+            QTableWidgetItem *item12 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(2,1,item12);
+        }
+    } catch (...) {
+    }
+}
+
+
+void MainWindow::on_pushButtonVezesK_B_clicked()
+{
+    try {
+        if(matB==0) throw QString("Operação por K não pode ser executada.");
+
+        int p = ui->lineEditVezesK_B->text().toInt();
+        ejm::Matriz *matC = matB->vezesK(p);
+        ui->textEditSaidaResultado->setText(matC->getMatriz());
+        if(matC) delete matC;
+
+    }
+    catch(QString &erro){
+        QMessageBox::information(this,"ERRO NO SISTEMA",erro);
+    }
+
+}
+
