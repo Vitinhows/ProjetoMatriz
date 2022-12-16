@@ -24,7 +24,9 @@ public:
     Matriz* vezesK(int p)const;
     bool eIgual(const Matriz * const mat);
     bool triangularSup()const;
+    bool triangularInf()const;
     bool simetrica()const;
+    bool identidade()const;
 };
 }//fim
 #endif // MATRIZ_H

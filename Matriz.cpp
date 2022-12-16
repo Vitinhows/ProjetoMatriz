@@ -218,6 +218,19 @@ bool Matriz::triangularSup()const{
     return true;
 }
 
+bool Matriz::triangularInf()const{
+    if(this->triangularSup() == true) return false;
+    int linha, coluna, aux;
+    for(linha = this->quantidadeDeLinhas - 1, coluna = linha; linha>0 and coluna>0; linha--, coluna--){
+        for(aux = linha - 1; aux >= 0 and this->getElemento(aux,coluna) == 0; aux--);
+            if(aux > quantidadeDeLinhas or aux ==0){
+                return false;
+            }
+    }
+    return true;
+
+}
+
 bool Matriz::simetrica()const{
     if(quantidadeDeLinhas != quantidadeDeColunas) throw QString("Matriz não quadrada");
     Matriz *aux = this->transposta();
@@ -232,6 +245,18 @@ bool Matriz::simetrica()const{
     }
     if(cont==(quantidadeDeLinhas*quantidadeDeColunas)) return true;
     return false;
+}
+
+bool Matriz::identidade()const{
+    int linha;
+    for(int coluna=0; coluna<this->quantidadeDeColunas; coluna++){
+        for(linha=0; linha<this->quantidadeDeLinhas and this->getElemento(linha,coluna) == 1; linha++);
+            if(linha < quantidadeDeLinhas){
+                return false;
+            }
+     }
+    return true;
+
 }
 
 

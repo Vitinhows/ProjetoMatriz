@@ -263,19 +263,17 @@ void MainWindow::on_pushButtonExecutar_clicked()
         if(matA->eIgual(matB)==true){
             QTableWidgetItem *item5 =new QTableWidgetItem(str1);
             this->ui->tableWidget->setItem(4,0,item5);
-        }
-        else{
-            QTableWidgetItem *item6 =new QTableWidgetItem(str2);
-            this->ui->tableWidget->setItem(4,0,item6);
-        }
-        if(matB->eIgual(matA)==true){
             QTableWidgetItem *item7 =new QTableWidgetItem(str1);
             this->ui->tableWidget->setItem(4,1,item7);
         }
         else{
+            QTableWidgetItem *item6 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(4,0,item6);
             QTableWidgetItem *item8 =new QTableWidgetItem(str2);
             this->ui->tableWidget->setItem(4,1,item8);
         }
+
+
         if(matA->simetrica()==true){
             QTableWidgetItem *item9 =new QTableWidgetItem(str1);
             this->ui->tableWidget->setItem(2,0,item9);
@@ -291,6 +289,38 @@ void MainWindow::on_pushButtonExecutar_clicked()
         else{
             QTableWidgetItem *item12 =new QTableWidgetItem(str2);
             this->ui->tableWidget->setItem(2,1,item12);
+        }
+        if(matA->triangularInf()==true){
+            QTableWidgetItem *item13 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(1,0,item13);
+        }
+        else{
+            QTableWidgetItem *item14 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(1,0,item14);
+        }
+        if(matB->triangularInf()==true){
+            QTableWidgetItem *item15 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(1,1,item15);
+        }
+        else{
+            QTableWidgetItem *item16 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(1,1,item16);
+        }
+        if(matA->identidade()==true){
+            QTableWidgetItem *item17 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(3,0,item17);
+        }
+        else{
+            QTableWidgetItem *item18 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(3,0,item18);
+        }
+        if(matB->identidade()==true){
+            QTableWidgetItem *item19 =new QTableWidgetItem(str1);
+            this->ui->tableWidget->setItem(3,1,item19);
+        }
+        else{
+            QTableWidgetItem *item20 =new QTableWidgetItem(str2);
+            this->ui->tableWidget->setItem(3,1,item20);
         }
     } catch (...) {
     }
